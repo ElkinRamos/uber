@@ -18,7 +18,11 @@ export class EstacionesService {
   }
 
   getAll(): Observable<EstacionModelo[]>{
-    return this.http.get<EstacionModelo[]>(`${this.url}/estaciones`)
+    return this.http.get<EstacionModelo[]>(`${this.url}/estaciones`, {
+     headers: new HttpHeaders({
+      "Authorization": `Bearer ${this.token}`
+     })
+    })
   }
 
   store(estacion: EstacionModelo): Observable<EstacionModelo> {
@@ -58,7 +62,10 @@ export class EstacionesService {
   }
 
   getWithId(id: string): Observable<EstacionModelo>{
-    return this.http.get<EstacionModelo>(`${this.url}/estaciones/${id}`)
+    return this.http.get<EstacionModelo>(`${this.url}/estaciones/${id}`,{
+      headers: new HttpHeaders({
+        "Authorization": `Bearer ${this.token}`
+      })
+    })
   }
-
 }

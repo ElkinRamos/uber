@@ -17,8 +17,12 @@ export class RutasService {
     this.token = this.seguridadService.getToken();
   }
 
-  getAll(): Observable<RutaModelo[]>{
-    return this.http.get<RutaModelo[]>(`${this.url}/rutas`)
+  getAll(): Observable<RutaModelo[]> {
+    return this.http.get<RutaModelo[]>(`${this.url}/rutas`, {
+      headers: new HttpHeaders({
+        "Authorization": `Bearer ${this.token}`
+      })
+    })
   }
 
   store(ruta: RutaModelo): Observable<RutaModelo> {
@@ -45,7 +49,7 @@ export class RutasService {
     });
   }
 
-  delete(id: string): Observable<RutaModelo[]>{
+  delete(id: string): Observable<RutaModelo[]> {
     return this.http.delete<RutaModelo[]>(`${this.url}/rutas/${id}`, {
       headers: new HttpHeaders({
         "Authorization": `Bearer ${this.token}`
@@ -53,8 +57,11 @@ export class RutasService {
     })
   }
 
-  getWithId(id: string): Observable<RutaModelo>{
-    return this.http.get<RutaModelo>(`${this.url}/rutas/${id}`)
+  getWithId(id: string): Observable<RutaModelo> {
+    return this.http.get<RutaModelo>(`${this.url}/rutas/${id}`, {
+      headers: new HttpHeaders({
+        "Authorization": `Bearer ${this.token}`
+      })
+    })
   }
-
 }

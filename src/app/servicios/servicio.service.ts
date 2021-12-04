@@ -17,8 +17,12 @@ export class ServicioService {
     this.token = this.seguridadService.getToken();
   }
 
-  getAll(): Observable<ServicioModelo[]>{
-    return this.http.get<ServicioModelo[]>(`${this.url}/servicios`)
+  getAll(): Observable<ServicioModelo[]> {
+    return this.http.get<ServicioModelo[]>(`${this.url}/servicios`, {
+      headers: new HttpHeaders({
+        "Authorization": `Bearer ${this.token}`
+      })
+    })
   }
 
   store(servicio: ServicioModelo): Observable<ServicioModelo> {
@@ -29,13 +33,15 @@ export class ServicioService {
       placa: servicio.placa,
       nombre_conductor: servicio.nombre_conductor,
       dinero: servicio.dinero,
-      ruta: servicio.ruta
-    }, {
-      headers: new HttpHeaders({
-        // "Authorization": `Bearer ${this.token}`
-      })
+      ruta: servicio.ruta,
     });
   }
+   //     }, {
+   //   headers: new HttpHeaders({
+        // "Authorization": `Bearer ${this.token}`
+   //   })
+  //  });
+ // }
 
   update(servicio: ServicioModelo): Observable<ServicioModelo> {
     return this.http.put<ServicioModelo>(`${this.url}/servicios/${servicio.id}`, {
@@ -61,8 +67,11 @@ export class ServicioService {
     })
   }
 
-  getWithId(id: string): Observable<ServicioModelo>{
-    return this.http.get<ServicioModelo>(`${this.url}/servicios/${id}`)
+  getWithId(id: string): Observable<ServicioModelo> {
+    return this.http.get<ServicioModelo>(`${this.url}/servicios/${id}`, {
+      headers: new HttpHeaders({
+        "Authorization": `Bearer ${this.token}`
+      })
+    })
   }
-
 }

@@ -60,5 +60,4 @@ export class EditComponent implements OnInit {
       this.fgValidacion.controls["telefono"].setValue(data.telefono)
     })
   }
-
 }
