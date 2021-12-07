@@ -25,6 +25,13 @@
       </div>
     </div>
 
+    <div class="input-field col s6">
+      <select class="browser-default" formControlName="origen" >
+        <option value="" disabled selected>Seleccione la estacion</option>
+        <option *ngFor="let estacion of listadoEstaciones" value="{{estacion.nombre}} - {{estacion.direccion}}">{{estacion.nombre}} - {{estacion.direccion}}</option>
+      </select>
+    </div>
+
     <div class="row center-align">
       <button [disabled]="!fgValidacion.valid" class="btn waves-effect waves-light" type="submit" name="action">Enviar
         <i class="material-icons right">send</i>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { EstacionModelo } from 'src/app/modelos/estacion.model';
 import { UsuarioModelo } from 'src/app/modelos/usuario.model';
 import { UsuarioService } from 'src/app/servicios/usuario.service';
 import Swal from 'sweetalert2'
@@ -18,12 +19,23 @@ export class CreateComponent implements OnInit {
     telefono: ['', [Validators.required, Validators.minLength(6)]],
     correo: ['', [Validators.required, Validators.email]],
   });
+  estacionesService: any;
 
   constructor(private fb: FormBuilder,
     private usuarioService: UsuarioService,
     private router: Router) { }
 
   ngOnInit(): void {
+    this.getAllEstaciones()
+  }
+
+  listadoEstaciones: EstacionModelo[] = []
+  
+  getAllEstaciones(){
+    this.estacionesService.getAll().subscribe((data: EstacionModelo[]) => {
+      this.listadoEstaciones = data
+      console.log(data)
+    })
   }
 
   store(){
@@ -42,4 +54,5 @@ export class CreateComponent implements OnInit {
       alert("Error en el envio");
     })
   }
+ 
 }

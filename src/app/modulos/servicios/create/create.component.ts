@@ -31,7 +31,7 @@ export class CreateComponent implements OnInit {
 
   store(){
     let servicio = new ServicioModelo();
-    servicio.fecha = this.fgValidacion.controls["fecha"].value.toString();
+    servicio.fecha = new Date(this.fgValidacion.controls["fecha"].value).toString();
     servicio.hora_inicio = this.fgValidacion.controls["hora_inicio"].value;
     servicio.hora_fin = this.fgValidacion.controls["hora_fin"].value;
     servicio.placa = this.fgValidacion.controls["placa"].value;
