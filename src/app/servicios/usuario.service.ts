@@ -9,7 +9,7 @@ import { SeguridadService } from './seguridad.service';
 })
 export class UsuarioService {
 
-  url = "http://localhost:3000"
+  url = "https://apilookback.herokuapp.com/"
   token: string = ''
 
   constructor(private http: HttpClient,

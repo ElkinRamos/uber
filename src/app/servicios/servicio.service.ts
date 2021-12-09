@@ -9,7 +9,7 @@ import { ServicioModelo } from '../modelos/servicio.model';
 })
 export class ServicioService {
 
-  url = "http://localhost:3000"
+  url = "https://apilookback.herokuapp.com/"
   token: string = ''
 
   constructor(private http: HttpClient,
