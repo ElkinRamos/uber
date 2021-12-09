@@ -11,7 +11,7 @@ import Swal from 'sweetalert2'
   styleUrls: ['./edit.component.css']
 })
 export class EditComponent implements OnInit {
-
+  listadoRutas: RutaModelo[] = [];
   constructor(private fb: FormBuilder,
     private rutasService: RutasService,
     private router: Router,
@@ -29,6 +29,7 @@ export class EditComponent implements OnInit {
   ngOnInit(): void {
     this.id = this.route.snapshot.params["id"]
     this.buscarRegistro(this.id);
+    this.getAllRutas();
   }
 
   edit(){
@@ -55,6 +56,12 @@ export class EditComponent implements OnInit {
       this.fgValidacion.controls["origen"].setValue(data.origen)
       this.fgValidacion.controls["destino"].setValue(data.destino)
       this.fgValidacion.controls["tiempo_estimado"].setValue(data.tiempo_estimado)
+    })
+  }
+  getAllRutas(){
+    this.rutasService.getAll().subscribe((data: RutaModelo[]) => {
+      this.listadoRutas = data
+      console.log(data)
     })
   }
 }

@@ -33,7 +33,7 @@ export class UsuarioService {
       correo: usuario.correo
     }, {
       headers: new HttpHeaders({
-        // "Authorization": `Bearer ${this.token}`
+        "Authorization": `Bearer ${this.token}`
       })
     });
   }

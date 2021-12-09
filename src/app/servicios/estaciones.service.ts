@@ -32,9 +32,9 @@ export class EstacionesService {
       coordx: estacion.coordx,
       coordy: estacion.coordy,
       tipo: estacion.tipo
-    }, {
+  }, {
       headers: new HttpHeaders({
-        // "Authorization": `Bearer ${this.token}`
+         "Authorization": `Bearer ${this.token}`
       })
     });
   }

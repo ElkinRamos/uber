@@ -12,6 +12,8 @@ import Swal from 'sweetalert2'
 })
 export class EditComponent implements OnInit {
 
+  listadoEstaciones: EstacionModelo[] = [];
+
   constructor(private fb: FormBuilder,
     private estacionService: EstacionesService,
     private router: Router,
@@ -31,6 +33,7 @@ export class EditComponent implements OnInit {
   ngOnInit(): void {
     this.id = this.route.snapshot.params["id"]
     this.buscarRegistro(this.id);
+    this.getAllEstaciones();
   }
 
   edit(){
@@ -61,6 +64,12 @@ export class EditComponent implements OnInit {
       this.fgValidacion.controls["coordx"].setValue(data.coordx)
       this.fgValidacion.controls["coordy"].setValue(data.coordy)
       this.fgValidacion.controls["tipo"].setValue(data.tipo)
+    })
+  }
+  getAllEstaciones(){
+    this.estacionService.getAll().subscribe((data: EstacionModelo[]) => {
+      this.listadoEstaciones = data
+      console.log(data)
     })
   }
 }

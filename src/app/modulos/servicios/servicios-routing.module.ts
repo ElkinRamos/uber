@@ -17,6 +17,7 @@ const routes: Routes = [
   },{
     path: 'get',
     component: GetComponent,
+    canActivate: [SessionGuard]
   },{
     path: '',
     redirectTo: 'get'

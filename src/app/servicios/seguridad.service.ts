@@ -23,11 +23,10 @@ export class SeguridadService {
       password: clave
     }, {
       headers: new HttpHeaders({
- 
       })
     });
   }
-
+//se gestiona los datos de la sesion
   almacenarSesion(data: any): Boolean {
     // Verificamos si existe la sesion
     let sessionData = localStorage.getItem("sessionData");

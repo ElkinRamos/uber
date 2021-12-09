@@ -34,14 +34,12 @@ export class ServicioService {
       nombre_conductor: servicio.nombre_conductor,
       dinero: servicio.dinero,
       ruta: servicio.ruta,
+     }, {
+      headers: new HttpHeaders({
+         "Authorization": `Bearer ${this.token}`
+      })
     });
-  }
-   //     }, {
-   //   headers: new HttpHeaders({
-        // "Authorization": `Bearer ${this.token}`
-   //   })
-  //  });
- // }
+ }
 
   update(servicio: ServicioModelo): Observable<ServicioModelo> {
     return this.http.put<ServicioModelo>(`${this.url}/servicios/${servicio.id}`, {

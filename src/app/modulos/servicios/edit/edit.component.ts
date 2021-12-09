@@ -27,7 +27,6 @@ export class EditComponent implements OnInit {
       ruta: ['', [Validators.required]],
     });
   
-
     id: string=''
 
   ngOnInit(): void {

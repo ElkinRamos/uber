@@ -10,8 +10,7 @@ import Swal from 'sweetalert2'
 })
 export class GetComponent implements OnInit {
 
-  constructor(private estacionesService: EstacionesService
-  ) { }
+  constructor(private estacionesService: EstacionesService  ) { }
 
   listado: EstacionModelo[] = []
 

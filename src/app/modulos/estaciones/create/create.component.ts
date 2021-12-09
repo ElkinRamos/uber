@@ -15,9 +15,9 @@ export class CreateComponent implements OnInit {
   fgValidacion = this.fb.group({
     nombre: ['', [Validators.required]],
     direccion: ['', [Validators.required]],
-    coordx: ['', [Validators.required, Validators.minLength(6)]],
-    coordy: ['', [Validators.required, Validators.minLength(6)]],
-    tipo: ['', [Validators.required, Validators.required]],
+    coordx: ['', [Validators.required]],
+    coordy: ['', [Validators.required]],
+    tipo: ['', [Validators.required]],
   });
 
   constructor(private fb: FormBuilder,

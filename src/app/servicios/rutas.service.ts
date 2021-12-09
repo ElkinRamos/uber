@@ -32,7 +32,7 @@ export class RutasService {
       tiempo_estimado: ruta.tiempo_estimado
     }, {
       headers: new HttpHeaders({
-        // "Authorization": `Bearer ${this.token}`
+         "Authorization": `Bearer ${this.token}`
       })
     });
   }
