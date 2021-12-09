@@ -26,16 +26,6 @@ export class CreateComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {
-    this.getAllEstaciones()
-  }
-
-  listadoEstaciones: EstacionModelo[] = []
-  
-  getAllEstaciones(){
-    this.estacionesService.getAll().subscribe((data: EstacionModelo[]) => {
-      this.listadoEstaciones = data
-      console.log(data)
-    })
   }
 
   store(){

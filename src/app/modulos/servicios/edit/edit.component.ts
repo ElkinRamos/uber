@@ -35,7 +35,7 @@ export class EditComponent implements OnInit {
   }
 
   edit(){
-     let servicio = new ServicioModelo();
+    let servicio = new ServicioModelo();
     servicio.fecha = this.fgValidacion.controls["fecha"].value;
     servicio.hora_inicio = this.fgValidacion.controls["hora_inicio"].value;
     servicio.hora_fin = this.fgValidacion.controls["hora_fin"].value;
