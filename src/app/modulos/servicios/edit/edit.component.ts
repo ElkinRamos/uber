@@ -19,6 +19,7 @@ export class EditComponent implements OnInit {
 
     fgValidacion = this.fb.group({
       fecha: ['', [Validators.required]],
+      id: ['', [Validators.required]],
       hora_inicio: ['', [Validators.required]],
       hora_fin: ['', [Validators.required]],
       placa: ['', [Validators.required]],
@@ -37,6 +38,7 @@ export class EditComponent implements OnInit {
   edit(){
     let servicio = new ServicioModelo();
     servicio.fecha = this.fgValidacion.controls["fecha"].value;
+    servicio.id = this.fgValidacion.controls["id"].value;
     servicio.hora_inicio = this.fgValidacion.controls["hora_inicio"].value;
     servicio.hora_fin = this.fgValidacion.controls["hora_fin"].value;
     servicio.placa = this.fgValidacion.controls["placa"].value;
