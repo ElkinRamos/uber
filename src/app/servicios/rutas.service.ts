@@ -9,7 +9,7 @@ import { SeguridadService } from './seguridad.service';
 })
 export class RutasService {
 
-  url = "https://apilookback.herokuapp.com/"
+  url = "https://apilookback.herokuapp.com"
   token: string = ''
 
   constructor(private http: HttpClient,

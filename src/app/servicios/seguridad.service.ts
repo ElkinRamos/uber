@@ -9,7 +9,7 @@ import { UsuarioModelo } from '../modelos/usuario.model';
 
 export class SeguridadService {
 
-  url = "https://apilookback.herokuapp.com/";
+  url = "https://apilookback.herokuapp.com";
   sessionUserData = new BehaviorSubject<UsuarioModelo>(new UsuarioModelo());
   
   constructor(private http: HttpClient) {
